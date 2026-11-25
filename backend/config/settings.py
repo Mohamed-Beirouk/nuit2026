@@ -92,7 +92,5 @@ REST_FRAMEWORK = {
     "UNAUTHENTICATED_USER": None,
 }
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-    "http://127.0.0.1:5173",
-]
+# The deployed page is on another origin and calls this API from the browser.
+CORS_ALLOW_ALL_ORIGINS = True

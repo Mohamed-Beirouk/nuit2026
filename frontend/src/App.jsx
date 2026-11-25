@@ -1,9 +1,14 @@
 import { useCallback, useEffect, useState } from "react";
 
+// The dev server proxies /api. A deployed build has no proxy, so it calls the API host.
+const API_BASE =
+  import.meta.env.VITE_API_BASE ??
+  (import.meta.env.DEV ? "" : "https://api-nuit2026.beirouk.dev");
+
 async function readClaims() {
-  const response = await fetch("/api/claims/");
+  const response = await fetch(`${API_BASE}/api/claims/`);
   const data = await response.json().catch(() => ({}));
-  if (!response.ok) {
+  if (!response.ok || !Array.isArray(data.claims)) {
     throw new Error(data.detail || "Could not load the counter.");
   }
   return data;
@@ -45,7 +50,7 @@ export default function App() {
     setPending(true);
     setError("");
     try {
-      const response = await fetch("/api/claims/", {
+      const response = await fetch(`${API_BASE}/api/claims/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name: trimmed }),
@@ -63,6 +68,8 @@ export default function App() {
       setPending(false);
     }
   }
+
+  const taken = Array.isArray(claims) ? claims : [];
 
   return (
     <main>
@@ -104,11 +111,11 @@ export default function App() {
 
       <section className="ledger" aria-label="Numbers already taken">
         <h2>Who has a number</h2>
-        {claims.length === 0 ? (
+        {taken.length === 0 ? (
           <p className="empty">Nobody yet.</p>
         ) : (
           <ol>
-            {claims.map((claim) => (
+            {taken.map((claim) => (
               <li key={claim.id}>
                 <span className="num">{claim.number}</span>
                 <span>{claim.name}</span>
