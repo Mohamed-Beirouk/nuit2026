@@ -1,0 +1,143 @@
+:root {
+  color: #1c1915;
+  background: #f3efe6;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  line-height: 1.4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  width: min(32rem, calc(100% - 2rem));
+  margin: 3rem auto 4rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.4rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: #6d6458;
+}
+
+h1 {
+  margin: 0;
+  font-family: Georgia, "Iowan Old Style", serif;
+  font-size: 2.6rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.lede {
+  margin: 0.8rem 0 1.5rem;
+  color: #3f3830;
+}
+
+form {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: #fffdf8;
+  border: 1px solid #e2d9cb;
+  border-radius: 12px;
+}
+
+label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  padding: 0.75rem 0.8rem;
+  border: 1px solid #cfc4b4;
+  border-radius: 8px;
+  font: inherit;
+  background: white;
+}
+
+button {
+  margin-top: 0.4rem;
+  padding: 0.85rem 1rem;
+  border: 0;
+  border-radius: 8px;
+  background: #1f6b4a;
+  color: white;
+  font: inherit;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+button:disabled {
+  background: #b7c4bc;
+  cursor: default;
+}
+
+.error {
+  margin: 0.9rem 0 0;
+  color: #8d1d1d;
+}
+
+.ticket {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 1rem 0 0;
+  padding: 1rem 1.1rem;
+  background: #17382b;
+  color: #f6f3ea;
+  border-radius: 12px;
+}
+
+.ticket span {
+  font-size: 1.05rem;
+}
+
+.ticket strong {
+  font-family: Georgia, "Iowan Old Style", serif;
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.ledger {
+  margin-top: 2rem;
+}
+
+.ledger h2 {
+  margin: 0 0 0.6rem;
+  font-size: 1rem;
+}
+
+.empty {
+  margin: 0;
+  color: #6d6458;
+}
+
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid #e2d9cb;
+}
+
+li {
+  display: flex;
+  gap: 0.8rem;
+  align-items: baseline;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid #e2d9cb;
+}
+
+.num {
+  min-width: 2rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  color: #1f6b4a;
+}
